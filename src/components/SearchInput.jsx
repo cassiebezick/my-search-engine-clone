@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { 
     StyledInputWrapper,
     StyledSearchIcon,
@@ -15,8 +15,13 @@ const SearchInput = ({showButtons = false}) => {
 
 const handleSearch = (e) => {
     e.preventDefault();
-    navigate(`/search?${searchTerm}`)
-}
+
+    const query = searchTerm.trim();
+    if (!query) return;
+
+    navigate(`/search?q=${encodeURIComponent(query)}`);
+};
+
   return (
     <form onSubmit={handleSearch}>
         <StyledInputWrapper>

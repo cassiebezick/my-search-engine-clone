@@ -1,9 +1,9 @@
-import React from 'react'
+import BraveSearch from "./BraveSearch";
 
-const SearchResults = () => {
+export default function SearchResults() {
   return (
-    <div>SearchResults</div>
-  )
+    <main>
+      <BraveSearch />
+    </main>
+  );
 }
-
-export default SearchResults

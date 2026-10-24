@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import {
   StyledSearchPageHeaderContainer,
@@ -15,7 +14,6 @@ import FeedIcon from "@mui/icons-material/Feed";
 import LocalOfferIcon from "@mui/icons-material/LocalOffer";
 import ImageIcon from "@mui/icons-material/Image";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
 import SettingsIcon from "@mui/icons-material/Settings";
 import AppsIcon from "@mui/icons-material/Apps";
 import SearchInput from "./SearchInput";
@@ -23,6 +21,7 @@ import { IconButton } from "@mui/material";
 import Tooltip from "@mui/material/Tooltip";
 import Avatar from "@mui/material/Avatar";
 import SearchResults from "./SearchResults";
+
 
 const SearchPage = () => {
   return (
@@ -74,7 +73,7 @@ const SearchPage = () => {
             </Tooltip>
           </StyledOptions>
           <StyledOptions>
-            <Tooltip tile="Google Apps">
+            <Tooltip title="Google Apps">
               <IconButton>
                 <AppsIcon />
               </IconButton>
@@ -99,7 +98,7 @@ const SearchPage = () => {
           </StyledOptions>
         </StyledHeaderRight>
       </StyledSearchHeader>
-      {true && <SearchResults />}
+      <SearchResults />
     </StyledSearchPageHeaderContainer>
   );
 };
