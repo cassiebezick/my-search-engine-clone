@@ -5,25 +5,44 @@ import MicIcon from "@mui/icons-material/Mic";
 const StyledInputWrapper = styled("div")`
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 75%;
-  height: 20px;
-  padding: 16px 24px;
-  margin: 0 auto;
-  margin-top: 24px;
+  gap: 12px;
+
+  width: 100%;
   max-width: 560px;
+  min-width: 0;
+  min-height: 52px;
+  box-sizing: border-box;
+
+  padding: 12px 16px;
+  margin: 24px auto 0;
+
   border: 0.1px solid rgb(95, 99, 104);
   border-radius: 999px;
+
+  > svg {
+    flex-shrink: 0;
+  }
+
   input {
     flex: 1;
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+
     background-color: ${({ theme }) => theme.body.darkColor};
     border: none;
-    padding: 16px 24px;
-    font-size: medium;
+    padding: 0;
+    font-size: 1rem;
     color: white;
+
     &:focus {
-      outline-width: 0px;
+      outline-width: 0;
     }
+  }
+
+  &:focus-within {
+    outline: 2px solid #8ab4f8;
+    outline-offset: 2px;
   }
 `;
 

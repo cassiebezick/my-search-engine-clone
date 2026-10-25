@@ -16,12 +16,12 @@ const Home = () => {
         <StyledHeaderContainer>
             <StyledHeaderWrapper>
                 <StyledHeaderLeft>
-                    <Link to='/about'>About</Link>
-                    <Link to='/store'>Store</Link>
+                    About
+                    Store
                 </StyledHeaderLeft>
                 <StyledHeaderRight>
-                    <Link to='/gmail'>Gmail</Link>
-                    <Link to='/images'>Images</Link>
+                    Gmail
+                    Images
                     <Tooltip title="Google Apps">
                         <IconButton>
                             <AppsIcon  
