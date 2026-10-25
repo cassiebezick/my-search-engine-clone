@@ -39,7 +39,6 @@ const StyledHeaderRight = styled("div")`
   flex: 0.2;
   padding: 8px;
   font-family: Roboto;
-  display: inline-block;
   padding: 5px;
   margin: 0px 5px;
   color: #bdc1c6;
