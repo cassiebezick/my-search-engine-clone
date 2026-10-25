@@ -1,5 +1,15 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
+import '../App.css';
+
+function plainText(value = "") {
+  const document = new DOMParser().parseFromString(
+    value,
+    "text/html"
+  );
+
+  return document.body.textContent || "";
+}
 
 export default function BraveSearch() {
   const [searchParams] = useSearchParams();
@@ -54,7 +64,7 @@ export default function BraveSearch() {
   }, [query]);
 
   return (
-    <section aria-label="Search results">
+    <section className="search-results" aria-label="Search results">
       <div role="status">
         {loading && <p>Loading results…</p>}
 
@@ -65,16 +75,43 @@ export default function BraveSearch() {
 
       {error && <p role="alert">{error}</p>}
 
-      {results.map((result) => (
-        <article key={result.link}>
-          <h2>
-            <a href={result.link}>{result.title}</a>
-          </h2>
+{results.map((result) => {
+  const url = new URL(result.link);
+  const website = url.hostname.replace(/^www\./, "");
 
-          <p>{result.link}</p>
-          <p>{result.snippet}</p>
-        </article>
-      ))}
+  return (
+    <article className="search-result" key={result.link}>
+      <a className="result-source" href={result.link}>
+        <span className="result-icon" aria-hidden="true">
+          {website.charAt(0).toUpperCase()}
+        </span>
+
+        <span className="result-source-text">
+          <span className="result-site-name">
+            {website}
+          </span>
+
+          <span className="result-address">
+            {website}
+            {url.pathname !== "/"
+              ? ` › ${url.pathname.slice(1)}`
+              : ""}
+          </span>
+        </span>
+      </a>
+
+      <h2 className="result-heading">
+        <a href={result.link}>
+          {plainText(result.title)}
+        </a>
+      </h2>
+
+      <p className="result-description">
+        {plainText(result.snippet)}
+      </p>
+    </article>
+  );
+})}
     </section>
   );
 }
