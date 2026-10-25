@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import {
   StyledSearchPageHeaderContainer,
   StyledSearchHeader,
@@ -24,7 +24,13 @@ import SearchResults from "./SearchResults";
 
 
 const SearchPage = () => {
+  const SearchPage = () => {
+  const [searchParams] = useSearchParams();
+  const query = searchParams.get("q") ?? "";
+  const allResultsUrl = `/search?q=${encodeURIComponent(query)}`;
+
   return (
+    
     <StyledSearchPageHeaderContainer>
       <StyledSearchHeader>
         <StyledHeaderLeft>
@@ -37,29 +43,32 @@ const SearchPage = () => {
           <StyledHeaderMiddle>
             <SearchInput />
             <StyledSubOptionsLeft>
-              <StyledOptions>
-                <SearchIcon />
-                <Link to="/all">All</Link>
-              </StyledOptions>
+
+            <StyledOptions>
+             <SearchIcon />
+               <Link to={allResultsUrl} aria-current="page">
+                All
+               </Link>
+            </StyledOptions>
 
               <StyledOptions>
                 <FeedIcon />
-                <Link to="/news">News</Link>
+                  News
               </StyledOptions>
 
               <StyledOptions>
                 <LocalOfferIcon />
-                <Link to="/shopping">Shopping</Link>
+                Shopping
               </StyledOptions>
 
               <StyledOptions>
                 <ImageIcon />
-                <Link to="/images">Images</Link>
+                Images
               </StyledOptions>
 
               <StyledOptions>
                 <LocationOnIcon />
-                <Link to="/maps">Maps</Link>
+                Maps
               </StyledOptions>
             </StyledSubOptionsLeft>
           </StyledHeaderMiddle>
