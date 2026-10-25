@@ -22,15 +22,12 @@ import Tooltip from "@mui/material/Tooltip";
 import Avatar from "@mui/material/Avatar";
 import SearchResults from "./SearchResults";
 
-
 const SearchPage = () => {
-  const SearchPage = () => {
   const [searchParams] = useSearchParams();
   const query = searchParams.get("q") ?? "";
   const allResultsUrl = `/search?q=${encodeURIComponent(query)}`;
 
   return (
-    
     <StyledSearchPageHeaderContainer>
       <StyledSearchHeader>
         <StyledHeaderLeft>
@@ -43,17 +40,16 @@ const SearchPage = () => {
           <StyledHeaderMiddle>
             <SearchInput />
             <StyledSubOptionsLeft>
-
-            <StyledOptions>
-             <SearchIcon />
-               <Link to={allResultsUrl} aria-current="page">
-                All
-               </Link>
-            </StyledOptions>
+              <StyledOptions>
+                <SearchIcon />
+                <Link to={allResultsUrl} aria-current="page">
+                  All
+                </Link>
+              </StyledOptions>
 
               <StyledOptions>
                 <FeedIcon />
-                  News
+                News
               </StyledOptions>
 
               <StyledOptions>
