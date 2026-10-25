@@ -105,7 +105,7 @@ const StyledOptions = styled('div')`
     display: flex;
     align-items: center;
     color: #969ba1;
-
+    font-family: Roboto;
 `;
 
 const StyledHeaderRight = styled("div")`
