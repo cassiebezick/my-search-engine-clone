@@ -23,6 +23,11 @@ const StyledInputWrapper = styled("div")`
     flex-shrink: 0;
   }
 
+  &:focus-within {
+    outline: 2px solid #8ab4f8;
+    outline-offset: 2px;
+  }
+
   input {
     flex: 1;
     width: 100%;
@@ -36,14 +41,10 @@ const StyledInputWrapper = styled("div")`
     color: white;
 
     &:focus {
-      outline-width: 0;
+      outline: none;
     }
   }
 
-  &:focus-within {
-    outline: 2px solid #8ab4f8;
-    outline-offset: 2px;
-  }
 `;
 
 const StyledSearchIcon = styled(SearchIcon)`
