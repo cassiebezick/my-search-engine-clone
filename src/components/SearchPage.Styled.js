@@ -22,7 +22,7 @@ const StyledSearchHeader = styled("div")`
   top: 0;
 
   border-bottom: 0.1px solid rgb(95, 99, 104);
-  background-color: ${({ theme }) => theme.darkColor};
+  background-color: ${({ theme }) => theme.body.darkColor};
 
   @media (max-width: 768px) {
     flex-direction: column;

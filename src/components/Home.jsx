@@ -15,12 +15,12 @@ const Home = () => {
         <StyledHeaderContainer>
             <StyledHeaderWrapper>
                 <StyledHeaderLeft>
-                    About
-                    Store
+                    <span>About</span>
+                    <span>Store</span>
                 </StyledHeaderLeft>
                 <StyledHeaderRight>
-                    Gmail
-                    Images
+                    <span>Gmail</span>
+                    <span>Images</span>
                     <Tooltip title="Google Apps">
                         <IconButton>
                             <AppsIcon  
