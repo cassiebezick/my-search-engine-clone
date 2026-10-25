@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { 
     StyledInputWrapper,
     StyledSearchIcon,
@@ -7,11 +7,17 @@ import {
  } from "./SearchInput.Styled";
 import Tooltip from "@mui/material/Tooltip";
 import { Button } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 const SearchInput = ({showButtons = false}) => {
-    const [searchTerm, setSearchTerm] = useState("");
     const navigate = useNavigate();
+    const [searchParams] = useSearchParams();
+    const queryFromUrl = searchParams.get("q") ?? "";
+    const [searchTerm, setSearchTerm] = useState(queryFromUrl);
+
+useEffect(() => {
+    setSearchTerm(queryFromUrl);
+}, [queryFromUrl]);
 
 const handleSearch = (e) => {
     e.preventDefault();
@@ -26,10 +32,12 @@ const handleSearch = (e) => {
     <form onSubmit={handleSearch}>
         <StyledInputWrapper>
             <StyledSearchIcon />
-            <input 
-                value={searchTerm} 
+            <input
+                type="text"
+                aria-label="Search the web"
+                value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                />
+            />
             <Tooltip title="Search by voice">
                 <StyledMicIcon />
             </Tooltip>
