@@ -17,6 +17,7 @@ const StyledHeaderLeft = styled('div')`
     align-items: center;
     justify-content: space-between;
     flex: 0.1;
+    font-family: Roboto;
     a {
         display: inline-block;
         padding: 5px;
@@ -37,6 +38,7 @@ const StyledHeaderRight = styled('div')`
     justify-content: space-between;
     flex: 0.2;
     padding: 8px;
+    font-family: Roboto;
     a {
         display: inline-block;
         padding: 5px;
